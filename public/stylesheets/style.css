@@ -29,3 +29,9 @@ table td {
   display: flex;
   flex-direction: column;
 }
+
+#flight-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
