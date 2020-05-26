@@ -3,7 +3,13 @@ const Schema = mongoose.Schema;
 
 const destinationSchema = new Schema({
     airport: String,
-    arrival: Date
+    arrival: {
+        type: Date,
+        default: function() {
+            const dt = new Date();
+            return dt.setFullYear(dt.getFullYear() + 1);
+        }
+    }
 });
 
 const flightSchema = new Schema({
