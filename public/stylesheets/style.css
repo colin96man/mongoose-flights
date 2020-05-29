@@ -1,6 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: gray;
+  color: snow;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px 0 10px;
 }
 
 a {
@@ -26,8 +34,9 @@ table td {
 }
 
 #new-flight {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
 }
 
 #flight-details {
