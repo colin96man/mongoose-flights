@@ -16,18 +16,15 @@ function newTicket(req, res) {
 
 function create(req, res) {
     console.log('create');
-    //create a ticket by new Ticket(req.body)
-    Flight.findById(req.params.id, function(err, flight) {
-        Ticket.create(req.body, function(err, ticket) {
-            flight.tickets.push(req.body.ticketsId);
+    Ticket.create(req.body, function(err, ticket) {
+        ticket.save(function(err) {
             flight.save(function(err) {
-                ticket.save(function(err) {
-                    res.redirect(`/flights/${flight._id}`);
-                })
+                res.redirect(`/flights/${flight._id}`);
             })
         })
     })
-    //call back function, set the flight property equal to req.params.id
-    //save the ticket
-    //redirect to flight show page
 }
+//create a ticket by new Ticket(req.body)
+//call back function, set the flight property equal to req.params.id
+//save the ticket
+//redirect to flight show page
